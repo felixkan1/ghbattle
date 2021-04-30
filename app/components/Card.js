@@ -36,7 +36,7 @@ export default function Card ({header, subheader, avatar,
   )
 }
 
-Card.prototype ={
+Card.PropTypes ={
   header: PropTypes.string.isRequired,
   subheader: PropTypes.string,
   avatar: PropTypes.string.isRequired,

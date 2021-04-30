@@ -40,7 +40,9 @@ function ReposGrid ({ repos }) {
       {repos.map((repo, index)=>{
         const { name, owner, html_url, stargazers_count, forks, open_issues} = repo
         const { login, avatar_url } = owner
-
+        
+        //turn each item in repo to a card
+        
         return (
           <li key={html_url}>
             <Card
@@ -115,7 +117,7 @@ export default class Popular extends React.Component{
           this.setState(({ repos }) => ({ //{repos} is current state, used destructuring
             repos: {
               ...repos, //current repos state
-              [selectedLanguage]: data //merge with this new object
+              [selectedLanguage]: data //merge with new data
             }
           }))
         })
@@ -150,7 +152,7 @@ export default class Popular extends React.Component{
 
         {this.isLoading() && <Loading text='Loading' speed ={100}/>}
 
-        {error && <p className='center-text-'>{error}</p>}
+        {error && <p className='center-text'>{error}</p>}
 
         {repos[selectedLanguage] && <ReposGrid repos={repos[selectedLanguage]} />}
       </React.Fragment>
